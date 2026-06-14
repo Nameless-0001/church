@@ -7,6 +7,10 @@ from datetime import datetime
 app = Flask(__name__)
 CORS(app)  # allows the form to talk to this server
 
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
+
 CSV_FILE = "visitors.csv"
 
 # Create the CSV file with headers if it doesn't exist yet
